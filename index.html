@@ -64,9 +64,11 @@ $.extend({
 // constants
 var DEFAULT_BOARD_SIZE = 8;
 
+
 // data model at global scope for easier debugging
 var board;
 var rules;
+
 
 // initialize board
 if ($.getUrlVar('size') && $.getUrlVar('size') >= 3) {
@@ -125,10 +127,31 @@ $(board).on('scoreUpdate', function(e, info)
 });
 
 // Button Events
-$(document).on('click', "#buttonIDhere", function(evt)
+$(document).on('click', "#newGame", function(evt)
 {
+  board.clear();
+  rules.prepareNewGame();
   // Your code here.
 });
+
+$(document).on('click', "#up", function(evt){
+ // <!--if(isMoveTypeValid) -->
+  //  checkMove('up');
+});
+$(document).on('click', "#left", function(evt){
+ // if(isMoveTypeValid) 
+ //   checkMove('left');
+});
+$(document).on('click', "#right", function(evt){
+ // if(isMoveTypeValid) 
+ //   checkMove('right');
+});
+$(document).on('click', "#down", function(evt){
+ // if(isMoveTypeValid) 
+  //  checkMove('down');
+});
+
+
 
 // keyboard events arrive here
 $(document).on('keydown', function(evt) {
@@ -149,8 +172,8 @@ $(document).on('keydown', function(evt) {
         <div>
         <!-- Column 1 Code Here -->
         <p id="title">Candy</br>Crush</p>
-        <input class="btn" type="button" value="New Game">
-  
+       <!-- <input class="btn" type="button" value="New Game">-->
+       <div class="p-2 text-center"><button class="btn newGameBtn" id="newGame">New Game</button></div>
         </div>
     </div>
   
